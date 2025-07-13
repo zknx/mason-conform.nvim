@@ -20,6 +20,10 @@ local function auto_install()
         end
     end
 
+    for _, formatter in pairs(config.ensure_install) do
+        formatters_to_install[formatter] = 1
+    end
+
     -- Filter out formatters that the user wants to ignore
     for _, formatter_to_ignore in pairs(config.ignore_install) do
         formatters_to_install[formatter_to_ignore] = nil
